@@ -1,14 +1,12 @@
 ﻿/* @Author
-Student Name: Berdan Çaðlar AYDIN
+Student Name: Berdan Çağlar AYDIN
 Student ID: 150170068
 Date: 26.05.2020 */
 
 #include<iostream>
 #include<fstream>
-#include<string>
 #include<sstream>
 #include<vector>
-#include<algorithm>
 #include<stack>
 #include<queue>
 #include <chrono>
@@ -143,7 +141,7 @@ Point Player::playDFS(vector<vector<bool>> op_board, int op_ship_points) {
 		Point curr = nodes.top(); //get the top Point
 		nodes.pop();
 		if (!check(curr)) { //check if it is traverseable
-			continue;
+			continue; //skip if no
 		}
 		int x = curr.x;
 		int y = curr.y;
@@ -161,7 +159,7 @@ Point Player::playDFS(vector<vector<bool>> op_board, int op_ship_points) {
 		nodes.push(Point(x + 1, y));
 		nodes.push(Point(x, y - 1));
 		nodes.push(Point(x - 1, y));
-		//increment nodes in memory by 4 (this approach checks the noeds after pushing to the stack, they could be checked before pushing too)
+		//increment nodes in memory by 4 (this approach checks the nodes after pushing to the stack, they could be checked before pushing too)
 		n_memory += 4;
 	}
 	return Point(n_visited, n_memory);
